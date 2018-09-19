@@ -1,9 +1,10 @@
 <div class="margin-body">
   <h1 class="text-center">All Users</h1>
   <table mat-table [dataSource]="users" class="mat-elevation-z8">
+
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef>First Name</th>
-      <td mat-cell *matCellDef="let user">{{user.firstName}}</td>
+      <td mat-cell *matCellDef="let user"><a [routerLink]="['/user', user._id]">{{user.firstName}}</a></td>
     </ng-container>
 
     <ng-container matColumnDef="lastName">
@@ -12,12 +13,15 @@
     </ng-container>
 
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>email</th>
+      <th mat-header-cell *matHeaderCellDef>Email</th>
       <td mat-cell *matCellDef="let user">{{user.email}}</td>
     </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   </table>
+  <!-- <ng-template #noFirstName [ngClass]="exists?.firstName ? 'success-text' : 'danger-text'" [(click)]="">
+    Sorry, I can't render now ...
+  </ng-template> -->
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {ErrorStateManager} from '../../classes/error-state-manager';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,14 @@ import {UserService} from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
   authUser = {
-    email: "",
+    emailFormControl: new FormControl("", [
+      Validators.required,
+      Validators.email
+    ]),
     password: ""
-  }
+  };
+  matcher = new ErrorStateManager();
+
 
   constructor(private userService: UserService) { }
 login(){
