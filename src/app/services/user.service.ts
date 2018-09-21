@@ -22,7 +22,7 @@ export class UserService {
     }, err => console.log('There was an error!!'), () => this.router.navigateByUrl('/'));
   }
   login(user: any) {
-    return this.api.post('/userLogin', user).subscribe((res: any) => {
+    return this.api.post('api/authenticate', user).subscribe((res: any) => {
       this.localStorage.set('currentUser', res.user);
     }, err => console.log(err), () => this.router.navigateByUrl('/'));
   }

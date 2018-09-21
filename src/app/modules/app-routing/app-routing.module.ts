@@ -13,6 +13,8 @@ import { ProfileContactComponent } from '../../components/profile/profile-contac
 import { NotFoundComponent } from '../../components/not-found/not-found.component';
 import { ProfileModule } from '../profile/profile.module';
 import { GithubComponent } from '../../components/github/github.component';
+import { AdminComponent } from '../../components/admin/admin.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'products', component: ProductsComponent},
   {path: 'user/:id', loadChildren: () => ProfileModule},
+  {path: 'admin', component: AdminComponent},
   {path: 'github', component: GithubComponent},
   {path: '**', component: NotFoundComponent}
 ];
